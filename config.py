@@ -49,9 +49,7 @@ LOGGING_CONFIG = dict(
                 'mailhost': ("localhost", 25),
                 'fromaddr': 'no-reply@onehop.co',
                 'toaddrs': [
-                    'hussain@screen-magic.com', 'pranav@screen-magic.com',
-                    'harsh.kohli@screen-magic.com', 'manoj.jadhav@screen-magic.com',
-                    'rahul.mishra@screen-magic.com'
+                        'some@some.com''
                 ],
                 'subject': '[Dev] Onehop : Something bad happened'
             },
