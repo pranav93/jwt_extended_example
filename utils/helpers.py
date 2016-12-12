@@ -1,9 +1,11 @@
+from __future__ import absolute_import
+
 import logging
 import logging.config
 from utils.basic_config import get_config
 
 __logging_configured = False
-config = get_config('/home/pranav/blog_code/slack_handler_flask_demo/config.py')
+config = get_config('/home/pranav/presentation/jwt_extended/config.py')
 
 
 def get_logger(logger_name=None):
