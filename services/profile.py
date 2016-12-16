@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
 
 from models import User
 from models.configure import session

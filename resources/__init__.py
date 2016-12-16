@@ -1,4 +1,5 @@
 from resources.protected import GetAllPermissions
+from resources.refresh import Refresh
 from resources.signup import Signup
 from resources.login import Login
 
@@ -13,4 +14,5 @@ def create_restful_api(app):
 
     api.add_resource(Signup, '/signup')
     api.add_resource(Login, '/login')
+    api.add_resource(Refresh, '/refresh')
     api.add_resource(GetAllPermissions, '/permissions')

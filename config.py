@@ -1,8 +1,15 @@
+from __future__ import absolute_import
 from os import path
 
-FLASK_APP_NAME = 'slack_trace'
+FLASK_APP_NAME = 'jwt_extended'
+secret_key = 'super-secret'
 
 pwd = path.dirname(path.realpath('__file__'))
+
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/jwt_extended'
+SQLALCHEMY_CONVERT_UNICODE = True
+SQLALCHEMY_ECHO = True
+SQLALCHEMY_POOL_CYCLE = 3600
 
 LOGGING_CONFIG = dict(
         version=1,
@@ -49,7 +56,7 @@ LOGGING_CONFIG = dict(
                 'mailhost': ("localhost", 25),
                 'fromaddr': 'no-reply@onehop.co',
                 'toaddrs': [
-                        'some@some.com''
+                        'some@some.com'
                 ],
                 'subject': '[Dev] Onehop : Something bad happened'
             },
