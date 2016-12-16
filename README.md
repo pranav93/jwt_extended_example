@@ -1,2 +1,2 @@
-# slack_trace
-A log handler that pushes stack trace to slack everytime an error occurs.
+# jwt extended example
+A flask jwt extended example, for presentation.
