@@ -2,6 +2,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 from flask_restful import Resource
 from flask_restful import reqparse
 
+from utils.resource_exceptions import handle_exceptions
 from utils.validations import non_empty_str
 
 from services.profile import login
@@ -12,6 +13,8 @@ login_request_format.add_argument('password', type=non_empty_str, required=True)
 
 
 class Login(Resource):
+    decorators = [handle_exceptions()]
+
     def post(self):
         login_kwargs = login_request_format.parse_args()
         user_object = login(**login_kwargs)

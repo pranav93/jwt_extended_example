@@ -18,7 +18,7 @@ def create_app():
         return {
             'id': identity,
             'first_name': user_obj.first_name,
-            'foo': ['bar', 'baz']
+            'superpowers': ['super_speed', 'fly', 'be_a_batman']
         }
 
     create_restful_api(app)

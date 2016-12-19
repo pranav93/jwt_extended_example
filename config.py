@@ -10,6 +10,7 @@ SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/jwt_extended'
 SQLALCHEMY_CONVERT_UNICODE = True
 SQLALCHEMY_ECHO = True
 SQLALCHEMY_POOL_CYCLE = 3600
+DEFAULT_LOGGER_NAME = 'api'
 
 LOGGING_CONFIG = dict(
         version=1,

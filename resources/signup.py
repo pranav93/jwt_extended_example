@@ -4,6 +4,7 @@ from flask_restful import Resource
 
 from models.configure import session
 from services.profile import signup
+from utils.resource_exceptions import handle_exceptions
 from utils.validations import non_empty_str
 from utils.helpers import get_logger
 
@@ -19,6 +20,8 @@ crash_logger = get_logger('crash')
 
 
 class Signup(Resource):
+    decorators = [handle_exceptions()]
+
     def post(self):
         signup_kwargs = signup_request_format.parse_args()
         user_object = signup(**signup_kwargs)
