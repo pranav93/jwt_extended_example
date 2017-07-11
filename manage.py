@@ -9,7 +9,7 @@
 # python manage.py runserver [admin] [dropdb]
 # python manage.py runserver [admin] [syncdb]
 
-from contrib.shells import Shells
+from shell import Shell
 from app import create_app
 
 
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     parser_server.set_defaults(func=run_application)
 
     parser_shell = subparsers.add_parser('shell')
-    parser_shell.set_defaults(func=Shells())
+    parser_shell.set_defaults(func=Shell())
 
     # parse the args
     args = parser.parse_args()

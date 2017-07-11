@@ -1,11 +1,13 @@
 from __future__ import absolute_import
 
+import os
 import logging
 import logging.config
 from utils.basic_config import get_config
 
 __logging_configured = False
-config = get_config('/home/pranav/presentation/jwt_extended/config.py')
+pwd = os.path.dirname(os.path.realpath('__file__'))
+config = get_config(os.path.join(pwd, 'config.py'))
 
 
 def get_logger(logger_name=None):

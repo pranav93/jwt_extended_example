@@ -16,11 +16,11 @@ def handle_exceptions():
             try:
                 return fn(*args, **kwargs)
             except ValueError as val_err:
-                log.error(repr(val_err))
+                log.exception(repr(val_err))
                 session.rollback()
                 abort(400, message=val_err.message)
             except KeyError as key_err:
-                log.error(repr(key_err))
+                log.exception(repr(key_err))
                 session.rollback()
                 abort(400, message=key_err.message)
             except IOError as io_err:
