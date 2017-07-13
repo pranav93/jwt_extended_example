@@ -1,3 +1,4 @@
+from resources.file_d import FileDownload
 from resources.protected import GetAllPermissions
 from resources.refresh import Refresh
 from resources.signup import Signup
@@ -16,3 +17,4 @@ def create_restful_api(app):
     api.add_resource(Login, '/login')
     api.add_resource(Refresh, '/refresh')
     api.add_resource(GetAllPermissions, '/permissions')
+    api.add_resource(FileDownload, '/file_download')
