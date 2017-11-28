@@ -6,8 +6,8 @@ import logging.config
 from utils.basic_config import get_config
 
 __logging_configured = False
-pwd = os.path.dirname(os.path.realpath('__file__'))
-config = get_config(os.path.join(pwd, 'config.py'))
+project_root = '/home/pranav/jwt_extended_example'
+config = get_config(os.path.join(project_root, 'config.py'))
 
 
 def get_logger(logger_name=None):

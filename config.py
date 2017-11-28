@@ -6,7 +6,7 @@ secret_key = 'super-secret'
 
 pwd = path.dirname(path.realpath('__file__'))
 
-SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/jwt_extended'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:p@localhost/jwt_extended'
 SQLALCHEMY_CONVERT_UNICODE = True
 SQLALCHEMY_ECHO = True
 SQLALCHEMY_POOL_CYCLE = 3600
@@ -26,41 +26,6 @@ LOGGING_CONFIG = dict(
             }
         },
         handlers={
-            'slacker': {
-                'class': 'utils.slacker.SlackHandler',
-                'url': 'https://hooks.slack.com/services/xyz',
-                'channel': 'pranavdev',
-                'username': 'crash_jabber',
-                'icon_emoji': ':ghost:'
-            },
-            'cron': {
-                'class': 'logging.handlers.TimedRotatingFileHandler',
-                'formatter': 'verbose',
-                'level': 'DEBUG',
-                'filename': '%s/%s' % (pwd, 'logs/cron/cron.log'),
-                'interval': 1,
-                'when': 'midnight',
-                'encoding': 'utf8'
-            },
-            'api': {
-                'class': 'logging.handlers.TimedRotatingFileHandler',
-                'formatter': 'verbose',
-                'level': 'DEBUG',
-                'filename': '%s/%s' % (pwd, 'logs/api/api.log'),
-                'interval': 1,
-                'when': 'midnight',
-                'encoding': 'utf8'
-            },
-            'critical_err': {
-                'class': 'logging.handlers.SMTPHandler',
-                'formatter': 'err_report',
-                'mailhost': ("localhost", 25),
-                'fromaddr': 'no-reply@onehop.co',
-                'toaddrs': [
-                        'some@some.com'
-                ],
-                'subject': '[Dev] Onehop : Something bad happened'
-            },
             'default': {
                 'class': 'logging.StreamHandler',
                 'formatter': 'verbose'
@@ -72,17 +37,17 @@ LOGGING_CONFIG = dict(
                 'level': 'DEBUG'
             },
             'cron': {
-                'handlers': ['cron'],
+                'handlers': ['default'],
                 'level': 'DEBUG',
                 'propagate': False
             },
             'api': {
-                'handlers': ['api'],
+                'handlers': ['default'],
                 'level': 'DEBUG',
                 'propagate': False
             },
             'crash': {
-                'handlers': ['critical_err', 'api', 'slacker'],
+                'handlers': ['default'],
                 'level': 'ERROR',
                 'propagate': False
             }

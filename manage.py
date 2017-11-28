@@ -31,13 +31,13 @@ def migrate_db(database_uri=None, migrate_jump=None, migrate_op=None):
         if migrate_op == 'upgrade' or migrate_op == 'downgrade':
             alembic_fun[migrate_op](alembic_cfg, migrate_jump)
         elif migrate_op == 'drop':
-            from onehop.models import Model
+            from models import Model
             Model.metadata.drop_all()
 
             connection = Model.metadata.bind.connect()
             connection.execute('drop table if exists alembic_version')
         elif migrate_op == 'sync':
-            from onehop.models import Model
+            from models import Model
             Model.metadata.drop_all()
 
             connection = Model.metadata.bind.connect()
